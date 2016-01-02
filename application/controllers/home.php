@@ -2,7 +2,7 @@
 
 	class Home extends CI_Controller{
 				
-		function index(){//--> home page
+		function index() { // --> home page
 			$this->layout();
 		}
 		

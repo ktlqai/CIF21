@@ -81,7 +81,7 @@
 			}
 			else
 			{
-				echo "Hello, ".$this->session->userdata('user_name').'['.$log_out.']';
+				echo "Hello, ".$this->session->userdata('user_name').' ['.$log_out.']';
 			}
 
         ?>
@@ -100,10 +100,10 @@
             <div class="wrapper_menu">
 		<div class="container">
        	 	<?php $this->load->view("frontend/menu");?>
-        </div><!--.container-->
+        </div><!-- .container -->
          
-     		</div><!--.wrapper_menu-->
-         	<div class="clear"></div><!--.clear-->	  
+     		</div><!-- .wrapper_menu -->
+         	<div class="clear"></div><!-- .clear -->	  
             
             		<div id="left">
          <div class="title"><img src="<?php echo $frontend_image; ?>/image-stuff/game-noi-bat.jpg" /></div><!--#left .title-->

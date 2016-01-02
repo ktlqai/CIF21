@@ -368,9 +368,9 @@
 			$password_data_form = $this->security->xss_clean($this->input->post('password')); // Textbox password ( Method : POST )
 			
 			//Query the data in Database :
-			$this->db->where('user_name =',$username_data_form);
-			$this->db->where('user_password',md5($password_data_form));
-			$this->db->where('user_level =',1); // role
+			$this->db->where('user_name =', $username_data_form);
+			$this->db->where('user_password', md5($password_data_form));
+			$this->db->where('user_level =', 1); // role
 			
 			//Run the query :
 			$query = $this->db->get('users');

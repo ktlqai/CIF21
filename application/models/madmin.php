@@ -154,20 +154,21 @@
 		  //Grab data from menu data form
 		  	$TenMenu=$this->input->post('txtTenMenu');
 			$TenController=$this->input->post('txtTenController');
-			$KichHoat=$this->input->post('radKichHoat');
+			//$KichHoat=$this->input->post('radKichHoat');
+			$KichHoat=$this->input->post('radActive');
 			$Menu_ID='';
 			
 			//Insert process :
 			
-			if(strlen($TenMenu)==0 || strlen($TenController)==0)
+			if (strlen($TenMenu)==0 || strlen($TenController)==0)
 				return false;
 				
 			else
 			{
-				$query=$this->db->query("INSERT INTO menus VALUES('$Menu_ID','$TenMenu','$TenController','$KichHoat')");
+				$query=$this->db->query("INSERT INTO menus VALUES('$Menu_ID','$TenMenu','$TenController',$KichHoat)");
 			}
 			
-			if($query)
+			if ($query)
 				return true;
 			else
 				return false;
@@ -176,7 +177,7 @@
 	 //Delete menu item  
 	  function delete_menu($param)
 	  {
-		$query=$this->db->query("DELETE FROM menus WHERE menu_id=".$param);
+		$query=$this->db->query("DELETE FROM menus WHERE menu_id = " . $param);
 		if($query)
 			return true;
 		else
@@ -186,14 +187,14 @@
 	 //Update menu item
 	 	function update_menu($param)
 		{
-			 $TenMenu = $this->input->post('txtTieuDeMenu');
-			 $Controller = $this->input->post('txtTenController');
-			 $Acitve = $this->input->post('radActive');
+			$TenMenu = $this->input->post('txtTieuDeMenu');
+			$Controller = $this->input->post('txtTenController');
+			$Acitve = $this->input->post('radActive');
 			 
-			 $query=$this->db->query("UPDATE menus SET menu_name='$TenMenu',menu_link='$Controller',menu_active='$Acitve' WHERE menu_id =".$param);
-			 if($query)
+			$query = $this->db->query("UPDATE menus SET menu_name='$TenMenu',menu_link='$Controller',menu_active=$Acitve WHERE menu_id = " . $param);
+			if ($query)
 			 	return true;
-			 else
+			else
 			 	return false;	
 		}
 	  

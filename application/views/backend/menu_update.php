@@ -54,8 +54,9 @@
             
       
             <table width="1030px" height="auto" border="1px solid #000" cellpadding="2" cellspacing="2">	
-            	<?php foreach($menu_item_data as $mid)
+            	<?php //foreach($menu_item_data as $mid)
 				{
+                    $mid = $mid[0];
 				?>
                  <form action="<?php echo base_url();?>admin/update_menu/<?php echo $mid['menu_id']; ?>" method="post">
            		<tr>
@@ -76,14 +77,14 @@
                 	<td>Trạng thái kích hoạt</td>
                     <td>
 						<?php
-							if($mid['menu_active'] == 1)
+							if ($mid['menu_active'] == 1)
 							{
                         ?>
                         	<input type="radio" id="radActive" name="radActive" value="1" checked="checked" />Đã kích hoạt
                         	<input type="radio" id="radActive" name="radActive" value="0" />Chưa kích hoạt	
                        		<?php
 							}
-							else{ ?>
+							else { ?>
 					<input type="radio" id="radActive" name="radActive" value="0" checked="checked" />Chưa kích hoạt			
 				<input type="radio" id="radActive" name="radActive" value="1" />Đã kích hoạt	
                            <?php

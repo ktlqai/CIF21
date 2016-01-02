@@ -20,13 +20,19 @@
 <!--end Js file here-->
 
 <script type="text/javascript">
-	function KiemTra(frm){
+    function IfEnterThenSubmitForm(frm) {
+        if (window.event && window.event.keyCode == 13) {
+            //frm.submit(); // submit form Dang nhap
+            KiemTra(frm); // neu Enter thi call validate, xong thi tu Submit form luon
+        }
+    }
+	function KiemTra(frm) {
 		var username_input = document.getElementById("username").value; // get input data
 		var password_input = document.getElementById("password").value; // get input data
-			if(username_input == '' || password_input == ''){
+			if(username_input == '' || password_input == '') {
 					alert("Còn thiếu thông tin để đăng nhập, vui lòng điền đầy đủ thông tin để đăng nhập !");
 				}
-			else{
+			else {
 					//alert('Chúc mừng bạn đã đăng nhập thành công !');
 					frm.submit(); // submit data
 			}
@@ -66,15 +72,15 @@
             <!--Form Login here !-->
             <fieldset style="width:500px">
             <legend>Thông tin đăng nhập</legend>
-            	<form action="<?php echo base_url();?>home/xulydangnhap" method="post" name="xulydangnhap"><!--Call function xuydangnhap -->
+            	<form action="<?php echo base_url();?>home/xulydangnhap" method="post" name="xulydangnhap"><!-- Call function xuydangnhap -->
             <table width="auto" cellspacing="20" cellpadding="5">
              <tr>
                 <td><label for="username">Tên đăng nhập</label></td>
-                <td><input type="text" name="username" id="username" size="20" /></td>
+                <td><input type="text" name="username" id="username" size="20" onkeypress="IfEnterThenSubmitForm(this.form)" /></td>
              </tr>
              <tr>
                  <td><label for="username">Mật khẩu</label></td>
-                 <td><input type="password" name="password" id="password" size="20" /></td>
+                 <td><input type="password" name="password" id="password" size="20" onkeypress="IfEnterThenSubmitForm(this.form)" /></td>
              </tr>
              <tr>
              	<td></td>

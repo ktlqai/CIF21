@@ -2,6 +2,13 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Admin extends CI_Controller{
+		function __construct() {
+			parent::__construct();
+
+			if ($this->session->userdata('user_level') == null || $this->session->userdata('user_level') != 1) {
+				redirect('home');
+			}
+		}
 		function index(){
 			$this->layout_2();
 		}
@@ -90,7 +97,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		
 		
 		//MENU MANAGER SECTION======================================================
-		function menu_manager(){
+		function menu_manager() {
 			
 			
 			$data['backend_image'] = base_url().'public/images/image-admin/';
@@ -101,7 +108,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			
 		}
 		
-		function add_menu(){
+		function add_menu() {
 			
 			$data['backend_image'] = base_url().'public/images/image-admin/';
 			
@@ -130,15 +137,26 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 					$this->load->view('backend/menu_show',$data);
 			}	
 		}
+
+		function update_menu_form($param) {
+			 
+			$data['backend_image'] = base_url().'public/images/image-admin/';
+			 
+			//$data['menu_item_data'] = $this->madmin->get_data_menu_with_param($param);
+			$data['mid'] = $this->madmin->get_data_menu_with_param($param);
+			 
+			$this->load->view('backend/menu_update', $data);
+		}
 		
-		 function update_menu($param){
+		function update_menu($param) {
 			 
-			 $data['backend_image'] = base_url().'public/images/image-admin/';
+			//$data['backend_image'] = base_url().'public/images/image-admin/';
 			 
-			 $data['menu_item_data'] = $this->madmin->get_data_menu_with_param($param);
+			//$data['menu_item_data'] = $this->madmin->get_data_menu_with_param($param);
 			 
-			 $result_update=$this->madmin->update_menu($param);
-			 if($result_update==true)
+			$result_update = $this->madmin->update_menu($param);
+			
+			if($result_update == true)
 			 	{
 					//$this->load->view('backend/menu_update',$data);
 					redirect('admin/menu_manager');
