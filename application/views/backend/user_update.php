@@ -44,7 +44,7 @@
     		<div class="banner">
       <img src="<?php echo $backend_image;?>user-update.jpg" />
         	</div><!--.banner-->
-        <div align="right">Hello,&nbsp;<?php echo $this->session->userdata('admin_username');?>&nbsp;&nbsp;[<a href="<?php echo base_url();?>admin/do_logout_2">Đăng xuất</a>]
+        <div align="right">Hello,&nbsp;<?php echo $this->session->userdata('user_name');?>&nbsp;&nbsp;[<a href="<?php echo base_url();?>admin/do_logout_2">Đăng xuất</a>]
         <br />
         <a href="<?php echo base_url();?>admin/user_manager">Back to user manager</a>&nbsp;
         </div>
@@ -63,7 +63,7 @@
                     <td><input type="text" name="txtTenDN" id="txtTenDN" value="<?php echo $ud['user_name']?>" /></td>
                  </tr>
                  <tr>   
-                    <td>Mật khẩu</td>
+                    <td>Mật khẩu (<br>nếu ko muốn<br> thay đổi password,<br> thì gõ lại password CŨ)</td>
                     <td><input type="text" name="txtMatKhau" id="txtMatKhau" value="<?php echo $ud['user_password']?>" /></td>
                     </tr>
                     <tr>

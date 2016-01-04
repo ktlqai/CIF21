@@ -22,7 +22,7 @@
       <img src="<?php echo $backend_image;?>new-manager.jpg" />
         	</div><!--.banner-->
   
-        <div align="right">Hello,&nbsp;<?php echo $this->session->userdata('admin_username');?>&nbsp;&nbsp;[<a href="<?php echo base_url();?>admin/do_logout_2">Đăng xuất</a>]
+        <div align="right">Hello,&nbsp;<?php echo $this->session->userdata('user_name');?>&nbsp;&nbsp;[<a href="<?php echo base_url();?>admin/do_logout_2">Đăng xuất</a>]
         <br />
         <a href="<?php echo base_url();?>admin">Back to home</a>&nbsp;
         </div>

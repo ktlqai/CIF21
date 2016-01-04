@@ -250,7 +250,7 @@
 	 //Delete user
 	 	function delete_user($param)
 		{
-			$query=$this->db->query("DELETE FROM users WHERE user_id=".$param);
+			$query=$this->db->query("DELETE FROM users WHERE user_id = " . $param);
 		if($query)
 			return true;
 		else

@@ -192,15 +192,24 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 					$this->load->view('backend/user_show',$data);
 			}	
 		}
-		
-		function user_update($param){
+
+		function user_update_form($param) {
 			
-			 $data['backend_image'] = base_url().'public/images/image-admin/';
+			$data['backend_image'] = base_url().'public/images/image-admin/';
 			
 			$data['user_data']=$this->madmin->get_data_user_with_param($param);
-			
-			 $result_update=$this->madmin->update_user($param);
-			 if($result_update==true)
+
+			$this->load->view('backend/user_update',$data);
+		}
+		
+		function user_update($param) {
+			$data['backend_image'] = base_url().'public/images/image-admin/';
+
+			$result_update=$this->madmin->update_user($param);
+
+			$data['user_data']=$this->madmin->get_data_user_with_param($param);
+
+			if ($result_update==true)
 			 	$this->load->view('backend/user_update',$data);
 			else
 				$data['message']="Có lỗi xãy ra !";		
